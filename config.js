@@ -24,7 +24,7 @@ window.ISAM_CONFIG = {
   address: "Avellaneda y Ruta 23, Moreno, Buenos Aires",
 
   // Dirección exacta para ubicar el pin en el mapa
-  mapQuery: "Nicolás Avellaneda 3000, B1743JLD Moreno, Provincia de Buenos Aires",
+  mapQuery: "ISAM, Nicolás Avellaneda 3000, B1743JLD Moreno, Provincia de Buenos Aires",
 
   // Horario de atención
   hours: "Lunes a viernes, horario escolar",
