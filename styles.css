@@ -110,13 +110,10 @@ em { font-family: var(--serif); font-size: 1.08em; }
 .hero {
   position: relative; color: #fff; padding: 104px 0 112px;
   background:
-    linear-gradient(90deg, rgba(13,23,48,.0) 0%, rgba(13,23,48,.35) 100%),
-    linear-gradient(160deg, var(--navy-2) 0%, var(--navy) 55%, var(--navy-deep) 100%);
+    linear-gradient(90deg, rgba(13,23,48,.95) 0%, rgba(13,23,48,.88) 48%, rgba(13,23,48,.74) 100%),
+    url("img/portada-edificio.jpg") center 40% / cover,
+    var(--navy);
   border-bottom: 3px solid var(--gold);
-}
-.hero::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07;
-  background-image: repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 22px);
 }
 .hero-inner { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
 .hero .overline { color: var(--gold-light); }
@@ -136,7 +133,7 @@ em { font-family: var(--serif); font-size: 1.08em; }
 .stars-fill { position: absolute; inset: 0 auto 0 0; overflow: hidden; white-space: nowrap; color: var(--gold-light); }
 
 .hero-card {
-  background: rgba(255,255,255,.04); border: 1px solid rgba(210,183,131,.35);
+  background: rgba(13,23,48,.55); backdrop-filter: blur(2px); border: 1px solid rgba(210,183,131,.35);
   padding: 40px 32px 32px; display: grid; gap: 30px; justify-items: center;
   outline: 1px solid rgba(210,183,131,.15); outline-offset: 6px;
 }
@@ -177,9 +174,10 @@ em { font-family: var(--serif); font-size: 1.08em; }
 .ideario h3 { font-size: 1.15rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .8em; }
 .ideario p { font-family: var(--serif); font-size: 1.25rem; line-height: 1.55; color: var(--navy); margin: 0; }
 
-.wide-photo { position: relative; margin: 56px 0 0; }
-.wide-photo img { width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 45%; }
-.wide-photo figcaption {
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery figcaption {
   margin-top: 12px; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
   padding-left: 14px; border-left: 2px solid var(--gold);
 }
@@ -194,7 +192,7 @@ em { font-family: var(--serif); font-size: 1.08em; }
 .photo-real {
   background:
     linear-gradient(180deg, rgba(13,23,48,0) 40%, rgba(13,23,48,.92) 100%),
-    url("img/pasillo.jpg") center / cover;
+    url("img/historia-general.jpg") center / cover;
 }
 .ph-label { text-transform: uppercase; letter-spacing: .22em; font-size: .74rem; color: var(--gold-light); }
 .ph-year { font: 600 clamp(4rem, 9vw, 6rem)/1 var(--serif); }
@@ -365,7 +363,7 @@ em { font-family: var(--serif); font-size: 1.08em; }
   .seal-big { width: 156px; }
   .stat-num { font-size: 2rem; }
   .stat-label { font-size: .62rem; letter-spacing: .1em; }
-  .wide-photo img { aspect-ratio: 4 / 3; }
+  .gallery { grid-template-columns: 1fr; gap: 24px; }
   .photo-frame { padding: 28px; outline-offset: 6px; }
   .orientation { padding: 32px 26px; }
   .cta-band { padding: 28px 22px; }
