@@ -132,11 +132,74 @@
     }
   });
 
-  // Sombra del encabezado al desplazarse
+  // Encabezado, barra de progreso y botón "volver arriba" según el desplazamiento
   var header = document.querySelector(".site-header");
+  var progress = document.querySelector(".scroll-progress");
+  var toTop = document.querySelector(".to-top");
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    header.classList.toggle("scrolled", y > 40);
+    progress.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+    toTop.classList.toggle("show", y > 700);
+    ticking = false;
+  }
   window.addEventListener("scroll", function () {
-    header.classList.toggle("scrolled", window.scrollY > 40);
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
+  onScroll();
+
+  // Aparición de elementos al desplazarse, en cascada dentro de cada grupo
+  var revealGroups = [
+    [".section-head", "reveal"],
+    [".subhead", "reveal"],
+    [".pillars .pillar", "reveal", 140],
+    [".ideario > div", "reveal", 160],
+    [".gallery figure", "reveal", 120],
+    [".split-media", "reveal-left"],
+    [".split-copy > *", "reveal", 80],
+    [".timeline li", "reveal", 150],
+    [".levels .level", "reveal", 140],
+    [".orientations .orientation", "reveal", 160],
+    [".features li", "reveal", 70],
+    [".reasons > div", "reveal", 160],
+    [".steps li", "reveal", 160],
+    [".cta-band", "reveal"],
+    ["#contact-form, #phone-card", "reveal-right"],
+    [".map", "reveal-zoom"],
+    [".footer-grid > div", "reveal", 100]
+  ];
+  var revealEls = [];
+  revealGroups.forEach(function (g) {
+    document.querySelectorAll(g[0]).forEach(function (el, i) {
+      el.classList.add(g[1]);
+      el.dataset.reveal = g[1];
+      if (g[2]) el.style.setProperty("--d", (i * g[2]) + "ms");
+      revealEls.push(el);
+    });
+  });
+  // La línea de tiempo dibuja su trazo cuando aparece
+  document.querySelectorAll(".timeline").forEach(function (el) { revealEls.push(el); });
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        revealer.unobserve(entry.target);
+        // Terminada la aparición, se quita la clase para que los efectos al pasar el mouse respondan rápido
+        var el = entry.target;
+        setTimeout(function () {
+          if (el.dataset.reveal) el.classList.remove(el.dataset.reveal);
+          el.style.removeProperty("--d");
+        }, 2200);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { revealer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
 
   // Formulario de consulta: solo se muestra si hay WhatsApp o correo para enviarlo.
   // Sin ninguno de los dos queda la tarjeta de atención telefónica.
