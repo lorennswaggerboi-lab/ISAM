@@ -35,7 +35,6 @@ window.ISAM_CONFIG = {
 
   // Calificación en Google (actualizar cada tanto)
   googleRating: 4.2,
-  googleReviews: 49,
   googleMapsUrl: "https://maps.app.goo.gl/qx3oLrruhobTMiR79",
 
   instagram: "https://www.instagram.com/secundaria.isam/"

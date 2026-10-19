@@ -67,7 +67,6 @@
     setAll("[data-rating]", function (el) { el.textContent = cfg.googleRating.toFixed(1).replace(".", ","); });
     setAll("[data-stars]", function (el) { el.style.width = (cfg.googleRating / 5 * 100) + "%"; });
   }
-  if (cfg.googleReviews) setAll("[data-reviews]", function (el) { el.textContent = cfg.googleReviews; });
   if (cfg.googleMapsUrl) setAll("[data-rating-link]", function (el) { el.href = cfg.googleMapsUrl; });
   setAll("[data-current-year]", function (el) { el.textContent = now; });
 
