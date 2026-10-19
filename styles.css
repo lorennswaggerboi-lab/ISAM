@@ -150,6 +150,11 @@ p { margin: 0 0 1em; }
 .photo-placeholder::before {
   content: ""; position: absolute; top: 28px; right: 28px; width: 56px; height: 4px; background: var(--red); border-radius: 2px;
 }
+.photo-real {
+  background:
+    linear-gradient(180deg, rgba(20,31,69,0) 40%, rgba(20,31,69,.9) 100%),
+    url("img/pasillo.jpg") center / cover;
+}
 .ph-label { text-transform: uppercase; letter-spacing: .2em; font-size: .78rem; opacity: .8; }
 .ph-year { font: 600 clamp(4rem, 9vw, 6rem)/1 var(--serif); }
 .ph-caption { font-family: var(--serif); font-style: italic; font-size: 1.2rem; opacity: .9; margin-top: 8px; }
@@ -294,4 +299,18 @@ p { margin: 0 0 1em; }
   .cta-band { padding: 26px 22px; }
   .form { padding: 24px 20px; }
   .map { height: 280px; }
+}
+
+/* Foto ancha (Institución) */
+.wide-photo { position: relative; margin: 48px 0 0; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+.wide-photo img { width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 45%; }
+.wide-photo figcaption {
+  position: absolute; left: 20px; bottom: 20px;
+  background: rgba(20,31,69,.82); color: #fff; font-size: .9rem; font-weight: 500;
+  padding: 8px 14px; border-radius: 999px; border-left: 3px solid var(--red);
+}
+@media (max-width: 640px) {
+  .wide-photo { margin-top: 32px; }
+  .wide-photo img { aspect-ratio: 4 / 3; }
+  .wide-photo figcaption { left: 12px; bottom: 12px; font-size: .82rem; }
 }
