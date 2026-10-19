@@ -3,22 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ISAM · Instituto Gral. Don José de San Martín · Moreno</title>
-  <meta name="description" content="Instituto Gral. Don José de San Martín (ISAM), Moreno. Jardín, Primaria y Secundaria con orientación en Economía y Administración y en Ciencias Sociales. Un lugar para Crear y Ser desde 1979.">
+  <title>Instituto General Don José de San Martín (ISAM) · Moreno</title>
+  <meta name="description" content="Instituto General Don José de San Martín (ISAM), Moreno, Provincia de Buenos Aires. Niveles Inicial, Primario y Secundario. Bachiller con orientación en Economía y Administración y en Ciencias Sociales. Desde 1979.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- BARRA INSTITUCIONAL -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Secretaría: <a href="tel:+542374690775" data-phone>0237 - 4690775</a></span>
+      <span class="topbar-sep" aria-hidden="true"></span>
+      <span data-address>Avellaneda y Ruta 23, Moreno, Buenos Aires</span>
+      <span class="topbar-right">
+        <a href="https://www.instagram.com/secundaria.isam/" target="_blank" rel="noopener" data-instagram>Instagram</a>
+      </span>
+    </div>
+  </div>
+
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="ISAM, inicio">
+      <a href="#top" class="brand" aria-label="Instituto General Don José de San Martín, inicio">
         <span class="brand-seal">ISAM</span>
         <span class="brand-text">
-          <strong>Instituto Gral. Don José de San Martín</strong>
-          <small>Jardín · Primaria · Secundaria · Moreno</small>
+          <strong>Instituto General Don José de San Martín</strong>
+          <small>Nivel Inicial · Primario · Secundario — Moreno</small>
         </span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
@@ -26,36 +38,38 @@
       </button>
       <nav id="nav" class="nav">
         <a href="#institucion">Institución</a>
-        <a href="#historia">Historia</a>
-        <a href="#propuesta">Propuesta</a>
-        <a href="#inscripciones">Inscripciones</a>
+        <a href="#historia">Reseña histórica</a>
+        <a href="#niveles">Niveles</a>
+        <a href="#admisiones">Admisiones</a>
         <a href="#contacto">Contacto</a>
-        <a href="#" class="btn btn-small btn-primary" data-wa>Escribinos</a>
+        <a href="tel:+542374690775" class="btn btn-small btn-primary" data-contact data-label-wa="Contáctenos" data-label-phone="Contáctenos">Contáctenos</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- PORTADA -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Moreno · Provincia de Buenos Aires</p>
-          <h1>Un lugar para <em>Crear</em> y <em>Ser</em>.</h1>
+          <p class="overline">Fundado en <span data-founded>1979</span> · Moreno, Provincia de Buenos Aires</p>
+          <h1>Formación integral con identidad sanmartiniana</h1>
+          <p class="motto">«Un lugar para Crear y Ser»</p>
           <p class="lead">
             Desde <span data-founded>1979</span>, el Instituto General Don José de San Martín acompaña
-            a las familias de Moreno desde el Jardín hasta el final de la Secundaria, con exigencia, cercanía y valores sanmartinianos.
+            a las familias de Moreno a lo largo de toda la escolaridad, desde el Nivel Inicial hasta
+            la finalización del Nivel Secundario, con excelencia académica y una sólida formación en valores.
           </p>
           <div class="hero-actions">
-            <a href="#inscripciones" class="btn btn-primary">Inscripciones</a>
-            <a href="#" class="btn btn-ghost" data-wa>Consultar por WhatsApp</a>
+            <a href="#admisiones" class="btn btn-gold">Admisiones ciclo lectivo <span data-admissions-year>2027</span></a>
+            <a href="tel:+542374690775" class="btn btn-outline-light" data-contact data-label-wa="Consultar por WhatsApp" data-label-phone="Comunicarse con Secretaría">Comunicarse con Secretaría</a>
           </div>
           <a class="rating" href="https://maps.app.goo.gl/qx3oLrruhobTMiR79" target="_blank" rel="noopener" data-rating-link>
             <span class="stars" aria-hidden="true"><span class="stars-fill" data-stars style="width: 84%">★★★★★</span>★★★★★</span>
             <span><strong data-rating>4,2</strong> en Google · <span data-reviews>49</span> opiniones</span>
           </a>
         </div>
-        <aside class="hero-card" aria-label="ISAM en números">
+        <aside class="hero-card" aria-label="El Instituto en cifras">
           <div class="seal-big" aria-hidden="true">
             <svg viewBox="0 0 200 200">
               <defs>
@@ -69,20 +83,20 @@
               <text x="100" y="114" text-anchor="middle" class="seal-word">ISAM</text>
             </svg>
           </div>
-          <div class="stats">
+          <dl class="stats">
             <div class="stat">
-              <span class="stat-num" data-count="300" data-suffix="+">300+</span>
-              <span class="stat-label">estudiantes</span>
+              <dt class="stat-label">Alumnos</dt>
+              <dd class="stat-num" data-count="300" data-suffix="+">300+</dd>
             </div>
             <div class="stat">
-              <span class="stat-num" data-years>+45</span>
-              <span class="stat-label">años educando en Moreno</span>
+              <dt class="stat-label">Años de trayectoria</dt>
+              <dd class="stat-num" data-years>+47</dd>
             </div>
             <div class="stat">
-              <span class="stat-num">3</span>
-              <span class="stat-label">niveles educativos</span>
+              <dt class="stat-label">Niveles educativos</dt>
+              <dd class="stat-num">3</dd>
             </div>
-          </div>
+          </dl>
         </aside>
       </div>
     </section>
@@ -90,254 +104,260 @@
     <!-- INSTITUCIÓN -->
     <section class="section" id="institucion">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Nuestra institución</p>
-          <h2>Una escuela con identidad propia</h2>
+        <header class="section-head">
+          <p class="eyebrow">La Institución</p>
+          <h2>Una comunidad educativa con identidad propia</h2>
           <p>
-            El ISAM es una escuela de Moreno comprometida con la formación académica y humana de sus
-            estudiantes. Inspirados en el ejemplo del General San Martín, educamos para que cada joven
-            egrese preparado para la universidad, el trabajo y la vida en comunidad.
+            El Instituto General Don José de San Martín es una institución educativa de Moreno
+            comprometida con la formación académica y humana de sus alumnos. Inspirados en el ejemplo
+            del Libertador, educamos para que cada estudiante egrese preparado para los estudios
+            superiores, el mundo del trabajo y la vida ciudadana.
           </p>
-        </div>
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V15c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg>
-            </div>
-            <h3>Formación sólida</h3>
-            <p>Contenidos actualizados, docentes comprometidos y un seguimiento real del progreso de cada alumno.</p>
+        </header>
+        <div class="grid grid-3 pillars">
+          <article class="pillar">
+            <span class="pillar-num">I</span>
+            <h3>Excelencia académica</h3>
+            <p>Contenidos actualizados, un cuerpo docente comprometido y un seguimiento personalizado del desempeño de cada alumno.</p>
           </article>
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2c3 .2 5.5 2.4 5.5 4.8"/></svg>
-            </div>
-            <h3>Acompañamiento cercano</h3>
-            <p>Una escuela donde conocemos a cada estudiante por su nombre y acompañamos a las familias.</p>
+          <article class="pillar">
+            <span class="pillar-num">II</span>
+            <h3>Acompañamiento personalizado</h3>
+            <p>Equipos de orientación y un vínculo cercano con las familias en cada etapa de la trayectoria escolar.</p>
           </article>
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg>
-            </div>
-            <h3>Valores sanmartinianos</h3>
-            <p>Respeto, responsabilidad, compromiso y solidaridad como base de la convivencia escolar.</p>
+          <article class="pillar">
+            <span class="pillar-num">III</span>
+            <h3>Formación en valores</h3>
+            <p>Respeto, responsabilidad, compromiso y solidaridad como fundamentos de la convivencia institucional.</p>
           </article>
         </div>
+
+        <div class="ideario">
+          <div>
+            <h3>Misión</h3>
+            <p>Brindar una educación integral de calidad que promueva el desarrollo intelectual, ético y social de nuestros alumnos, en un ámbito de respeto, esfuerzo y compromiso con la comunidad.</p>
+          </div>
+          <div>
+            <h3>Visión</h3>
+            <p>Ser una institución de referencia en Moreno, reconocida por la formación de personas críticas, creativas y solidarias, capaces de construir su propio proyecto de vida.</p>
+          </div>
+        </div>
+
         <figure class="wide-photo">
-          <img src="img/patio-tinglado.jpg" alt="Patio y tinglado del ISAM durante el recreo" width="1080" height="813" loading="lazy">
-          <figcaption>Nuestro patio y el tinglado</figcaption>
+          <img src="img/patio-tinglado.jpg" alt="Patio y tinglado del Instituto" width="1080" height="813" loading="lazy">
+          <figcaption>Patio y tinglado del Instituto</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- HISTORIA -->
+    <!-- RESEÑA HISTÓRICA -->
     <section class="section section-alt" id="historia">
       <div class="container split">
         <div class="split-media" aria-hidden="true">
-          <div class="photo-placeholder photo-real">
-            <span class="ph-label">Desde</span>
+          <div class="photo-frame photo-real">
+            <span class="ph-label">Fundado en</span>
             <span class="ph-year" data-founded>1979</span>
-            <span class="ph-caption">“Un lugar para Crear y Ser”</span>
+            <span class="ph-caption">«Un lugar para Crear y Ser»</span>
           </div>
         </div>
         <div class="split-copy">
-          <p class="eyebrow">Nuestra historia</p>
-          <h2>Más de <span data-years-plain>45</span> años formando generaciones en Moreno</h2>
+          <p class="eyebrow">Reseña histórica</p>
+          <h2>Más de <span data-years-plain>47</span> años al servicio de la educación en Moreno</h2>
           <p>
             El Instituto General Don José de San Martín abrió sus puertas en <span data-founded>1979</span>
-            con un propósito claro: brindar a las familias de Moreno una educación de calidad, cercana
-            y comprometida con su comunidad. Desde entonces lo guía un lema que sigue vigente:
-            <strong>“Un lugar para Crear y Ser”</strong>.
+            con el propósito de ofrecer a las familias de Moreno una educación de calidad, cercana y
+            comprometida con la comunidad. Desde entonces, su labor se guía por un lema que conserva
+            plena vigencia: <em>«Un lugar para Crear y Ser»</em>.
           </p>
           <p>
-            A lo largo de más de cuatro décadas, la escuela creció junto a la ciudad. Cambiaron las
-            aulas, las tecnologías y los proyectos, pero se mantuvo lo esencial: el trato personal,
-            la exigencia con afecto y el orgullo de ver a nuestros egresados avanzar en sus estudios
-            y en sus trabajos.
+            A lo largo de más de cuatro décadas, la Institución ha crecido junto a la ciudad, incorporando
+            niveles, espacios y proyectos, sin apartarse de aquello que la define: el trato personal,
+            la exigencia académica y el compromiso con la formación integral de cada alumno.
           </p>
           <p>
-            Hoy, generaciones de familias de Moreno eligen el ISAM. Muchos exalumnos vuelven a
-            confiarnos la educación de sus propios hijos, y esa es nuestra mayor satisfacción.
+            Hoy, generaciones de familias de Moreno confían en el Instituto. Numerosos egresados eligen
+            nuevamente la Institución para la educación de sus hijos, testimonio de una trayectoria
+            construida con dedicación y continuidad.
           </p>
           <ol class="timeline">
             <li><strong data-founded>1979</strong><span>Fundación del Instituto en Moreno</span></li>
-            <li><strong>Crecimiento</strong><span>La escuela suma niveles, espacios y proyectos</span></li>
-            <li><strong>Hoy</strong><span>Jardín, Primaria y Secundaria: una comunidad educativa con más de <span data-years-plain>45</span> años de historia</span></li>
+            <li><strong>Consolidación</strong><span>Incorporación de niveles, espacios y proyectos institucionales</span></li>
+            <li><strong>Actualidad</strong><span>Niveles Inicial, Primario y Secundario en una misma institución</span></li>
           </ol>
         </div>
       </div>
     </section>
 
-    <!-- PROPUESTA -->
-    <section class="section" id="propuesta">
+    <!-- NIVELES -->
+    <section class="section" id="niveles">
       <div class="container">
-        <div class="section-head">
+        <header class="section-head">
           <p class="eyebrow">Propuesta educativa</p>
-          <h2>Tres niveles, un mismo proyecto educativo</h2>
-          <p>En el ISAM acompañamos a los chicos durante toda su escolaridad: desde sus primeros pasos en el Jardín hasta que egresan de la Secundaria.</p>
-        </div>
+          <h2>Niveles educativos</h2>
+          <p>Un proyecto pedagógico continuo que acompaña a los alumnos desde sus primeros pasos en el Nivel Inicial hasta la finalización del Nivel Secundario.</p>
+        </header>
         <div class="grid grid-3 levels">
           <article class="level">
             <span class="level-tag">Nivel Inicial</span>
-            <h3>Jardín</h3>
-            <p>Un espacio cálido donde los más chicos aprenden jugando, exploran, crean y dan sus primeros pasos en la vida escolar.</p>
+            <h3>Jardín de Infantes</h3>
+            <p>Un ámbito cálido y estimulante donde los niños aprenden a través del juego, la exploración y la expresión, dando sus primeros pasos en la vida escolar.</p>
           </article>
           <article class="level">
             <span class="level-tag">Nivel Primario</span>
-            <h3>Primaria</h3>
-            <p>De 1.º a 6.º grado. Lectura, escritura, matemática y ciencias, con un seguimiento cercano de cada chico y su familia.</p>
+            <h3>Educación Primaria</h3>
+            <p>De 1.º a 6.º grado. Alfabetización, pensamiento matemático y ciencias, con Informática e Inglés desde primer año y un seguimiento cercano de cada alumno.</p>
           </article>
           <article class="level">
             <span class="level-tag">Nivel Secundario</span>
-            <h3>Secundaria</h3>
+            <h3>Educación Secundaria</h3>
             <p>De 1.º a 6.º año. Bachiller con orientación en Economía y Administración o en Ciencias Sociales.</p>
           </article>
         </div>
 
         <div class="subhead">
-          <h3>Secundaria: dos orientaciones</h3>
-          <p>En el ciclo superior, cada estudiante elige la orientación que mejor se ajusta a sus intereses.</p>
+          <h3>Orientaciones del Nivel Secundario</h3>
+          <p>En el Ciclo Superior, cada alumno elige la orientación que mejor se ajusta a sus intereses y proyecto personal.</p>
         </div>
         <div class="grid grid-2 orientations">
-          <article class="level">
-            <span class="level-tag">Orientación</span>
+          <article class="orientation">
+            <span class="orientation-label">Bachiller con orientación en</span>
             <h3>Economía y Administración</h3>
-            <p>Contabilidad, gestión de organizaciones, economía y emprendimientos. Una base sólida para carreras en ciencias económicas y para el mundo del trabajo.</p>
+            <p>Contabilidad, gestión de las organizaciones, economía y emprendimientos. Una base sólida para carreras en ciencias económicas y para la inserción en el mundo del trabajo.</p>
           </article>
-          <article class="level">
-            <span class="level-tag">Orientación</span>
+          <article class="orientation">
+            <span class="orientation-label">Bachiller con orientación en</span>
             <h3>Ciencias Sociales</h3>
-            <p>Historia, geografía, sociología y ciudadanía. Formación crítica para comprender la sociedad y participar activamente en ella.</p>
+            <p>Historia, geografía, sociología y formación ciudadana. Un enfoque crítico para comprender la realidad social y participar activamente en ella.</p>
           </article>
         </div>
 
         <div class="subhead">
-          <h3>Mucho más que el aula</h3>
-          <p>Talleres, deporte y proyectos que completan la formación de nuestros alumnos en todos los niveles.</p>
+          <h3>Propuesta complementaria</h3>
+          <p>Actividades que enriquecen la formación de los alumnos en todos los niveles.</p>
         </div>
         <ul class="features">
           <li>Informática e Inglés desde primer año</li>
           <li>Salidas didácticas</li>
           <li>Campamentos</li>
-          <li>Taller “Vida en la naturaleza”</li>
+          <li>Taller «Vida en la naturaleza»</li>
           <li>Deportes y Taller de Softball</li>
           <li>Equipos de orientación</li>
         </ul>
       </div>
     </section>
 
-    <!-- POR QUÉ ELEGIRNOS -->
+    <!-- DISTINCIONES -->
     <section class="section section-dark">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Por qué elegir el ISAM</p>
-          <h2>Lo que nos distingue</h2>
-        </div>
+        <header class="section-head">
+          <p class="eyebrow">Por qué elegirnos</p>
+          <h2>Una trayectoria que nos respalda</h2>
+        </header>
         <div class="grid grid-3 reasons">
           <div>
-            <span class="reason-num" data-years>+45</span>
+            <span class="reason-num" data-years>+47</span>
             <h3>Años de trayectoria</h3>
-            <p>Una institución con historia y raíces en Moreno, elegida por generaciones de familias.</p>
-          </div>
-          <div>
-            <span class="reason-num">1:1</span>
-            <h3>Trato personal</h3>
-            <p>Grupos de tamaño humano y un equipo que acompaña a cada estudiante y a su familia.</p>
+            <p>Una institución con historia y arraigo en Moreno, elegida por generaciones de familias.</p>
           </div>
           <div>
             <span class="reason-num">3</span>
-            <h3>Niveles en un mismo lugar</h3>
-            <p>Jardín, Primaria y Secundaria: toda la escolaridad en la misma escuela, con un proyecto educativo continuo.</p>
+            <h3>Niveles educativos</h3>
+            <p>Inicial, Primario y Secundario: toda la escolaridad en una misma institución, con un proyecto pedagógico continuo.</p>
+          </div>
+          <div>
+            <span class="reason-num">2</span>
+            <h3>Orientaciones</h3>
+            <p>Economía y Administración o Ciencias Sociales: un título que habilita para los estudios superiores y el trabajo.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- INSCRIPCIONES -->
-    <section class="section" id="inscripciones">
+    <!-- ADMISIONES -->
+    <section class="section" id="admisiones">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Inscripciones</p>
-          <h2>Sumate a la comunidad ISAM</h2>
-          <p>El proceso es simple y te acompañamos en cada paso.</p>
-        </div>
+        <header class="section-head">
+          <p class="eyebrow">Admisiones</p>
+          <h2>Inscripciones ciclo lectivo <span data-admissions-year>2027</span></h2>
+          <p>El proceso de admisión se desarrolla en tres etapas. La Secretaría acompaña a cada familia durante todo el trámite.</p>
+        </header>
         <ol class="steps">
           <li>
             <span class="step-num">1</span>
-            <h3>Consultá</h3>
-            <p>Escribinos por WhatsApp o completá el formulario para conocer vacantes y requisitos.</p>
+            <h3>Solicitud de información</h3>
+            <p>Comuníquese con la Secretaría para conocer la disponibilidad de vacantes y los requisitos de cada nivel.</p>
           </li>
           <li>
             <span class="step-num">2</span>
-            <h3>Visitanos</h3>
-            <p>Coordinamos una entrevista para que conozcas la escuela y a su equipo directivo.</p>
+            <h3>Entrevista institucional</h3>
+            <p>Se coordina un encuentro con el equipo directivo para conocer la Institución y su proyecto educativo.</p>
           </li>
           <li>
             <span class="step-num">3</span>
-            <h3>Inscribite</h3>
-            <p>Presentás la documentación y tu hijo o hija ya es parte del ISAM.</p>
+            <h3>Formalización de la inscripción</h3>
+            <p>Presentación de la documentación requerida y confirmación de la vacante.</p>
           </li>
         </ol>
         <div class="cta-band">
           <div>
-            <h3>¿Tenés dudas sobre vacantes o aranceles?</h3>
-            <p>Respondemos todas las consultas por WhatsApp en horario escolar.</p>
+            <h3>Consultas sobre vacantes y aranceles</h3>
+            <p>Horario de atención de Secretaría: <span data-hours>Lunes a viernes, en horario escolar</span>.</p>
           </div>
-          <a href="#" class="btn btn-whatsapp" data-wa>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>
-            Escribir por WhatsApp
-          </a>
+          <a href="tel:+542374690775" class="btn btn-primary" data-contact data-label-wa="Consultar por WhatsApp" data-label-phone="Llamar a Secretaría">Llamar a Secretaría</a>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
     <section class="section section-alt" id="contacto">
-      <div class="container split">
+      <div class="container split split-contact">
         <div class="split-copy">
           <p class="eyebrow">Contacto</p>
-          <h2>Estamos para ayudarte</h2>
-          <p>Dejanos tu consulta y te respondemos por WhatsApp a la brevedad.</p>
-          <ul class="contact-list">
-            <li>
-              <span class="cl-label">Dirección</span>
-              <span data-address>Avellaneda y Ruta 23, Moreno, Buenos Aires</span>
-            </li>
-            <li>
-              <span class="cl-label">Teléfono</span>
-              <a href="tel:+542374690775" data-phone>0237 - 4690775</a>
-            </li>
-            <li>
-              <span class="cl-label">Horario de atención</span>
-              <span data-hours>Lunes a viernes, horario escolar</span>
-            </li>
-            <li>
-              <span class="cl-label">Instagram</span>
-              <a href="https://www.instagram.com/secundaria.isam/" target="_blank" rel="noopener" data-instagram>@secundaria.isam</a>
-            </li>
-          </ul>
+          <h2>Secretaría del Instituto</h2>
+          <p>Para consultas institucionales, administrativas o sobre el proceso de admisión, puede comunicarse a través de los siguientes medios.</p>
+          <dl class="contact-list">
+            <div>
+              <dt>Dirección</dt>
+              <dd data-address>Avellaneda y Ruta 23, Moreno, Buenos Aires</dd>
+            </div>
+            <div>
+              <dt>Teléfono</dt>
+              <dd><a href="tel:+542374690775" data-phone>0237 - 4690775</a></dd>
+            </div>
+            <div>
+              <dt>Horario de atención</dt>
+              <dd data-hours>Lunes a viernes, en horario escolar</dd>
+            </div>
+            <div>
+              <dt>Instagram</dt>
+              <dd><a href="https://www.instagram.com/secundaria.isam/" target="_blank" rel="noopener" data-instagram>@secundaria.isam</a></dd>
+            </div>
+          </dl>
         </div>
-        <form class="form" id="contact-form" novalidate>
+
+        <form class="form" id="contact-form" novalidate hidden>
+          <h3 class="form-title">Formulario de consulta</h3>
           <div class="field">
             <label for="f-name">Nombre y apellido</label>
             <input id="f-name" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="f-type">Soy</label>
+              <label for="f-type">Vínculo con la Institución</label>
               <select id="f-type" name="type">
                 <option>Familia interesada</option>
-                <option>Familia de la escuela</option>
-                <option>Estudiante</option>
-                <option>Exalumno/a</option>
+                <option>Familia de la Institución</option>
+                <option>Alumno/a</option>
+                <option>Egresado/a</option>
                 <option>Otro</option>
               </select>
             </div>
             <div class="field">
               <label for="f-year">Nivel de interés</label>
               <select id="f-year" name="year">
-                <option>Jardín</option>
-                <option>Primaria</option>
-                <option>Secundaria</option>
+                <option>Nivel Inicial</option>
+                <option>Nivel Primario</option>
+                <option>Nivel Secundario</option>
                 <option>No aplica</option>
               </select>
             </div>
@@ -346,14 +366,21 @@
             <label for="f-msg">Consulta</label>
             <textarea id="f-msg" name="message" rows="4" required></textarea>
           </div>
-          <p class="form-error" id="form-error" role="alert" hidden>Completá tu nombre y tu consulta.</p>
-          <button type="submit" class="btn btn-primary btn-block">Enviar por WhatsApp</button>
+          <p class="form-error" id="form-error" role="alert" hidden>Por favor, complete su nombre y su consulta.</p>
+          <button type="submit" class="btn btn-primary btn-block" data-submit-label>Enviar consulta</button>
         </form>
+
+        <div class="phone-card" id="phone-card">
+          <p class="phone-card-label">Atención telefónica</p>
+          <a href="tel:+542374690775" class="phone-card-number" data-phone>0237 - 4690775</a>
+          <p class="phone-card-note">Secretaría · <span data-hours>Lunes a viernes, en horario escolar</span></p>
+          <a href="tel:+542374690775" class="btn btn-primary btn-block" data-contact data-label-wa="Consultar por WhatsApp" data-label-phone="Llamar ahora">Llamar ahora</a>
+        </div>
       </div>
       <div class="container">
         <div class="map">
           <iframe
-            title="Ubicación del ISAM en Moreno"
+            title="Ubicación del Instituto General Don José de San Martín"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             data-map
@@ -364,28 +391,39 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
+    <div class="container footer-grid">
+      <div class="footer-brand">
         <div class="brand brand-footer">
           <span class="brand-seal">ISAM</span>
-          <span class="brand-text"><strong>Instituto Gral. Don José de San Martín</strong><small>Jardín · Primaria · Secundaria · Moreno</small></span>
+          <span class="brand-text"><strong>Instituto General Don José de San Martín</strong><small>Moreno, Provincia de Buenos Aires</small></span>
         </div>
-        <p class="footer-note">“Un lugar para Crear y Ser” desde <span data-founded>1979</span>.<br>Avellaneda y Ruta 23, Moreno · Tel. 0237 - 4690775</p>
+        <p class="footer-motto">«Un lugar para Crear y Ser» — desde <span data-founded>1979</span></p>
       </div>
-      <nav class="footer-nav" aria-label="Pie de página">
-        <a href="#institucion">Institución</a>
-        <a href="#historia">Historia</a>
-        <a href="#propuesta">Propuesta</a>
-        <a href="#inscripciones">Inscripciones</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div>
+        <h4>Institución</h4>
+        <a href="#institucion">La Institución</a>
+        <a href="#historia">Reseña histórica</a>
+        <a href="#admisiones">Admisiones</a>
+      </div>
+      <div>
+        <h4>Niveles</h4>
+        <a href="#niveles">Nivel Inicial</a>
+        <a href="#niveles">Nivel Primario</a>
+        <a href="#niveles">Nivel Secundario</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <span data-address>Avellaneda y Ruta 23, Moreno, Buenos Aires</span>
+        <a href="tel:+542374690775" data-phone>0237 - 4690775</a>
+        <a href="https://www.instagram.com/secundaria.isam/" target="_blank" rel="noopener" data-instagram>@secundaria.isam</a>
+      </div>
     </div>
     <div class="container footer-bottom">
-      <span>© <span data-current-year>2026</span> Instituto Gral. Don José de San Martín (ISAM). Todos los derechos reservados.</span>
+      <span>© <span data-current-year>2026</span> Instituto General Don José de San Martín. Todos los derechos reservados.</span>
     </div>
   </footer>
 
-  <a href="#" class="wa-float" data-wa aria-label="Escribir por WhatsApp">
+  <a href="#" class="wa-float" data-wa-float aria-label="Consultar por WhatsApp" hidden>
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>
   </a>
 

@@ -1,26 +1,52 @@
 (function () {
   var cfg = window.ISAM_CONFIG || {};
-  var now = new Date().getFullYear();
+  var today = new Date();
+  var now = today.getFullYear();
   var years = cfg.foundedYear ? now - cfg.foundedYear : null;
+  // Desde septiembre se muestran las inscripciones del ciclo lectivo siguiente
+  var admissionsYear = today.getMonth() >= 8 ? now + 1 : now;
+  var hasWhatsApp = !!cfg.whatsapp;
+  var telHref = cfg.phoneTel ? "tel:" + cfg.phoneTel : null;
 
   function waLink(message) {
     return "https://wa.me/" + cfg.whatsapp + "?text=" + encodeURIComponent(message || cfg.whatsappMessage || "");
+  }
+
+  function mailLink(message) {
+    return "mailto:" + cfg.email + "?subject=" + encodeURIComponent("Consulta desde el sitio web") +
+      "&body=" + encodeURIComponent(message || "");
   }
 
   function setAll(selector, fn) {
     document.querySelectorAll(selector).forEach(fn);
   }
 
-  // Datos de la escuela
-  setAll("[data-wa]", function (el) {
+  // Botones de contacto: WhatsApp si está configurado; si no, llamada a Secretaría
+  setAll("[data-contact]", function (el) {
+    if (hasWhatsApp) {
+      el.href = waLink();
+      el.target = "_blank";
+      el.rel = "noopener";
+      if (el.dataset.labelWa) el.textContent = el.dataset.labelWa;
+    } else {
+      if (telHref) el.href = telHref;
+      el.removeAttribute("target");
+      if (el.dataset.labelPhone) el.textContent = el.dataset.labelPhone;
+    }
+  });
+  setAll("[data-wa-float]", function (el) {
+    if (!hasWhatsApp) return;
     el.href = waLink();
     el.target = "_blank";
     el.rel = "noopener";
+    el.hidden = false;
   });
+
+  // Datos de la Institución
   if (cfg.phoneDisplay) {
     setAll("[data-phone]", function (el) {
       el.textContent = cfg.phoneDisplay;
-      if (cfg.phoneTel) el.href = "tel:" + cfg.phoneTel;
+      if (telHref) el.href = telHref;
     });
   }
   if (cfg.foundedYear) setAll("[data-founded]", function (el) { el.textContent = cfg.foundedYear; });
@@ -28,6 +54,7 @@
     setAll("[data-years]", function (el) { el.textContent = "+" + years; });
     setAll("[data-years-plain]", function (el) { el.textContent = years; });
   }
+  setAll("[data-admissions-year]", function (el) { el.textContent = admissionsYear; });
   if (cfg.address) {
     setAll("[data-address]", function (el) { el.textContent = cfg.address; });
     setAll("[data-map]", function (el) {
@@ -44,7 +71,7 @@
   if (cfg.googleMapsUrl) setAll("[data-rating-link]", function (el) { el.href = cfg.googleMapsUrl; });
   setAll("[data-current-year]", function (el) { el.textContent = now; });
 
-  // Contador de estudiantes: arranca en 0 y sube hasta el número final
+  // Contador de alumnos: arranca en 0 y sube hasta el número final
   if (cfg.students) setAll("[data-count]", function (el) { el.setAttribute("data-count", cfg.students); });
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -106,15 +133,24 @@
     }
   });
 
-  // Sombra del header al hacer scroll
+  // Sombra del encabezado al desplazarse
   var header = document.querySelector(".site-header");
   window.addEventListener("scroll", function () {
-    header.classList.toggle("scrolled", window.scrollY > 8);
+    header.classList.toggle("scrolled", window.scrollY > 40);
   }, { passive: true });
 
-  // Formulario: arma el mensaje y abre WhatsApp
+  // Formulario de consulta: solo se muestra si hay WhatsApp o correo para enviarlo.
+  // Sin ninguno de los dos queda la tarjeta de atención telefónica.
   var form = document.getElementById("contact-form");
+  var phoneCard = document.getElementById("phone-card");
   var error = document.getElementById("form-error");
+  var canSend = hasWhatsApp || !!cfg.email;
+  form.hidden = !canSend;
+  phoneCard.hidden = canSend;
+  if (canSend) {
+    form.querySelector("[data-submit-label]").textContent = hasWhatsApp ? "Enviar consulta por WhatsApp" : "Enviar consulta por correo";
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var name = form.name.value.trim();
@@ -125,9 +161,10 @@
     }
     error.hidden = true;
     var text =
-      "Hola, soy " + name + " (" + form.type.value + ").\n" +
+      "Buenos días. Mi nombre es " + name + " (" + form.type.value + ").\n" +
       (form.year.value !== "No aplica" ? "Nivel de interés: " + form.year.value + "\n" : "") +
       "\n" + message;
-    window.open(waLink(text), "_blank", "noopener");
+    if (hasWhatsApp) window.open(waLink(text), "_blank", "noopener");
+    else window.location.href = mailLink(text);
   });
 })();
