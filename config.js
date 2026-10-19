@@ -17,6 +17,9 @@ window.ISAM_CONFIG = {
   // Año de fundación (con esto se calculan los "años educando")
   foundedYear: 1979,
 
+  // Cantidad de estudiantes que muestra el contador de la portada
+  students: 600,
+
   // Dirección (también se usa para el mapa)
   address: "Avellaneda y Ruta 23, Moreno, Buenos Aires",
 

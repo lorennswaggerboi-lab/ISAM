@@ -38,6 +38,42 @@
   if (cfg.instagram) setAll("[data-instagram]", function (el) { el.href = cfg.instagram; });
   setAll("[data-current-year]", function (el) { el.textContent = now; });
 
+  // Contador de estudiantes: arranca en 0 y sube hasta el número final
+  if (cfg.students) setAll("[data-count]", function (el) { el.setAttribute("data-count", cfg.students); });
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function countUp(el) {
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    var suffix = el.getAttribute("data-suffix") || "";
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    var duration = 2000;
+    var start = null;
+    function frame(t) {
+      if (start === null) start = t;
+      var p = Math.min((t - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + (p === 1 ? suffix : "");
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  var counters = document.querySelectorAll("[data-count]");
+  if (!reduceMotion) counters.forEach(function (el) { el.textContent = "0"; });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          countUp(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { io.observe(el); });
+  } else {
+    counters.forEach(countUp);
+  }
+
   // Menú móvil
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("nav");
