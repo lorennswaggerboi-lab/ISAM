@@ -46,14 +46,26 @@
     var target = parseInt(el.getAttribute("data-count"), 10);
     var suffix = el.getAttribute("data-suffix") || "";
     if (reduceMotion) { el.textContent = target + suffix; return; }
-    var duration = 2000;
+    // Tramo 1: sube parejo y medio rápido hasta ~83% del número.
+    // Tramo 2: frena de a poco hasta llegar, sin saltos de velocidad entre tramos.
+    var cruise = target * 0.83;
+    var cruiseTime = 1300;
+    var power = 5;
+    var slowTime = power * (target - cruise) / (cruise / cruiseTime);
     var start = null;
     function frame(t) {
       if (start === null) start = t;
-      var p = Math.min((t - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + (p === 1 ? suffix : "");
-      if (p < 1) requestAnimationFrame(frame);
+      var elapsed = t - start;
+      var value, done = false;
+      if (elapsed < cruiseTime) {
+        value = cruise * elapsed / cruiseTime;
+      } else {
+        var p = Math.min((elapsed - cruiseTime) / slowTime, 1);
+        value = cruise + (target - cruise) * (1 - Math.pow(1 - p, power));
+        done = p === 1;
+      }
+      el.textContent = Math.floor(value) + (done ? suffix : "");
+      if (!done) requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
   }
