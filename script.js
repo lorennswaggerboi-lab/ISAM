@@ -31,7 +31,7 @@
   if (cfg.address) {
     setAll("[data-address]", function (el) { el.textContent = cfg.address; });
     setAll("[data-map]", function (el) {
-      el.src = "https://www.google.com/maps?q=" + encodeURIComponent(cfg.address + ", Argentina") + "&output=embed";
+      el.src = "https://www.google.com/maps?q=" + encodeURIComponent((cfg.mapQuery || cfg.address) + ", Argentina") + "&output=embed";
     });
   }
   if (cfg.hours) setAll("[data-hours]", function (el) { el.textContent = cfg.hours; });
