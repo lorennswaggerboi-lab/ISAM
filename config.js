@@ -12,7 +12,7 @@ window.ISAM_CONFIG = {
   phoneTel: "+542374690775",
 
   // Mensaje que aparece precargado al abrir WhatsApp
-  whatsappMessage: "Hola, quisiera recibir información sobre el nivel secundario del ISAM.",
+  whatsappMessage: "Hola, quisiera recibir información sobre el ISAM.",
 
   // Año de fundación (con esto se calculan los "años educando")
   foundedYear: 1979,

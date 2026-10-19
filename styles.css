@@ -169,7 +169,8 @@ p { margin: 0 0 1em; }
   border-radius: var(--radius); padding: 36px 32px; background: #fff;
   border: 1px solid var(--line); border-top: 4px solid var(--navy); box-shadow: var(--shadow);
 }
-.level:nth-child(2) { border-top-color: var(--red); }
+.levels .level:nth-child(2), .orientations .level:nth-child(2) { border-top-color: var(--red); }
+.levels .level:nth-child(3) { border-top-color: #8a93b5; }
 .level p { color: var(--muted); margin: 0; }
 .level-tag {
   display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
@@ -261,6 +262,7 @@ p { margin: 0 0 1em; }
   .hero-inner, .split { grid-template-columns: 1fr; gap: 40px; }
   .split-media { max-width: 420px; }
   .grid-3, .steps, .features { grid-template-columns: repeat(2, 1fr); }
+  .levels { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 860px) {

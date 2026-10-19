@@ -120,7 +120,7 @@
     error.hidden = true;
     var text =
       "Hola, soy " + name + " (" + form.type.value + ").\n" +
-      (form.year.value !== "No aplica" ? "Año de interés: " + form.year.value + "\n" : "") +
+      (form.year.value !== "No aplica" ? "Nivel de interés: " + form.year.value + "\n" : "") +
       "\n" + message;
     window.open(waLink(text), "_blank", "noopener");
   });
