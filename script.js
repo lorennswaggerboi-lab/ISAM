@@ -36,6 +36,12 @@
   }
   if (cfg.hours) setAll("[data-hours]", function (el) { el.textContent = cfg.hours; });
   if (cfg.instagram) setAll("[data-instagram]", function (el) { el.href = cfg.instagram; });
+  if (cfg.googleRating) {
+    setAll("[data-rating]", function (el) { el.textContent = cfg.googleRating.toFixed(1).replace(".", ","); });
+    setAll("[data-stars]", function (el) { el.style.width = (cfg.googleRating / 5 * 100) + "%"; });
+  }
+  if (cfg.googleReviews) setAll("[data-reviews]", function (el) { el.textContent = cfg.googleReviews; });
+  if (cfg.googleMapsUrl) setAll("[data-rating-link]", function (el) { el.href = cfg.googleMapsUrl; });
   setAll("[data-current-year]", function (el) { el.textContent = now; });
 
   // Contador de estudiantes: arranca en 0 y sube hasta el número final

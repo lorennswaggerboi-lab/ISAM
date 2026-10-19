@@ -29,5 +29,10 @@ window.ISAM_CONFIG = {
   // Horario de atención
   hours: "Lunes a viernes, horario escolar",
 
+  // Calificación en Google (actualizar cada tanto)
+  googleRating: 4.2,
+  googleReviews: 49,
+  googleMapsUrl: "https://maps.app.goo.gl/qx3oLrruhobTMiR79",
+
   instagram: "https://www.instagram.com/secundaria.isam/"
 };

@@ -102,6 +102,18 @@ p { margin: 0 0 1em; }
 .hero .lead { font-size: 1.15rem; color: rgba(255,255,255,.85); max-width: 34em; margin-bottom: 2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
+.rating {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 28px; padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.82); font-size: .92rem; text-decoration: none;
+  transition: border-color .2s, background-color .2s;
+}
+.rating:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.09); }
+.rating strong { color: #fff; }
+.stars { position: relative; display: inline-block; font-size: 1.05rem; line-height: 1; letter-spacing: 2px; color: rgba(255,255,255,.28); }
+.stars-fill { position: absolute; inset: 0 auto 0 0; overflow: hidden; white-space: nowrap; color: #f6b93b; }
+
 .hero-card {
   background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
   border-radius: 20px; padding: 32px; display: grid; gap: 28px; justify-items: center;
